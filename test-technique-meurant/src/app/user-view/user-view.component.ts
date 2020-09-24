@@ -8,6 +8,7 @@ import {UserService} from '../services/user.service';
 })
 export class UserViewComponent implements OnInit {
   users: any[];
+  toggle = false;
 
   constructor(private userService: UserService) {
   }
@@ -15,14 +16,10 @@ export class UserViewComponent implements OnInit {
   ngOnInit(): void {
     this.users = this.userService.users;
   }
-
-  // tslint:disable-next-line:typedef
-  onSave() {
-    this.userService.saveUserToServer();
+  onToggle(): boolean{
+    return this.toggle = !this.toggle;
   }
-
-  // tslint:disable-next-line:typedef
-  onFetch() {
+  onFetch(): void {
     this.userService.getUserFromServer();
   }
 }

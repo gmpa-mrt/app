@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'user/:id', component: SingleUserComponent },
+  { path: 'user', component: UserViewComponent },
   { path: '', component: UserViewComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }

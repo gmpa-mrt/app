@@ -10,6 +10,7 @@ export class UserComponent implements OnInit {
   @Input() userFirstName: string;
   @Input() userLastName: string;
   @Input() userEmail: string;
+  @Input() id: number;
 
   constructor() {
   }
