@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset)2">
+    <form (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm">
+      <div class="form-group">
+        <label for="newFirstName">{{firstName}}</label>
+        <input type="text" id="newFirstName" name="newFirstName" placeholder="enter new first name" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="newLastName">{{lastName}}</label>
+        <input type="text" id="newLastName" name="newLastName" placeholder="enter new last name" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="newEmail">{{email}}</label>
+        <input type="text" id="newEmail" name="newEmail" placeholder="enter new email" ngModel>
+      </div>
+      <button type="submit" class="btn btn-primary">Loading</button>
+    </form>
+  </div>
+</div>
+<a routerLink="/user">Back to the list</a>
