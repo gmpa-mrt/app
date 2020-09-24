@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>List of users</h2>
+    <ul class="list-group">
+      <app-user *ngFor="let user of users"
+                [userFirstName]="user.firstName"
+                [userLastName]="user.lastName"
+                [userEmail]="user.email"
+      ></app-user>
+    </ul>
+    <button class="btn btn-success">Add New User</button>
+  </div>
+</div>
