@@ -26,4 +26,19 @@ export class UserService {
       return userObject.id === id;
     });
   }
+
+  // tslint:disable-next-line:typedef
+  addUser(firstName: string, lastFirst: string, email: string){
+    const userObject = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      email: ''
+    };
+    userObject.firstName = firstName;
+    userObject.lastName = lastFirst;
+    userObject.email = email;
+    userObject.id = this.users[( this.users.length - 1 )].id + 1;
+    this.users.push(userObject);
+  }
 }
