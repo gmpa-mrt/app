@@ -4,14 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import {FormsModule} from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import {UserService} from './services/user.service';
 import { UserViewComponent } from './user-view/user-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingleUserComponent } from './single-user/single-user.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+
 
 import {RouterModule, Routes} from '@angular/router';
+
 
 
 const appRoutes: Routes = [
@@ -29,12 +33,14 @@ const appRoutes: Routes = [
     UserViewComponent,
     NotFoundComponent,
     SingleUserComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [
     UserService
