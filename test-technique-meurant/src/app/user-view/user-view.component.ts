@@ -15,4 +15,14 @@ export class UserViewComponent implements OnInit {
   ngOnInit(): void {
     this.users = this.userService.users;
   }
+
+  // tslint:disable-next-line:typedef
+  onSave() {
+    this.userService.saveUserToServer();
+  }
+
+  // tslint:disable-next-line:typedef
+  onFetch() {
+    this.userService.getUserFromServer();
+  }
 }

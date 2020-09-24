@@ -1,24 +1,13 @@
+import { HttpClient } from "@angular/common/http";
+import {Injectable} from "@angular/core";
+
+@Injectable()
+
 export class UserService {
-  users = [
-    {
-      id: 1,
-      firstName: 'Jean',
-      lastName: 'Peter',
-      email: 'jeanpeter@jp.com'
-    },
-    {
-      id: 2,
-      firstName: 'Laura',
-      lastName: 'Klop',
-      email: 'lauraklop@lk.com'
-    },
-    {
-      id: 3,
-      firstName: 'Hugo',
-      lastName: 'Mople',
-      email: 'hugomople@mp.com'
-    }
-  ];
+  users = [];
+
+  constructor(private httpClient: HttpClient) {
+  }
 
   // tslint:disable-next-line:typedef
   getUserById(id: number){
@@ -41,4 +30,35 @@ export class UserService {
     userObject.id = this.users[( this.users.length - 1 )].id + 1;
     this.users.push(userObject);
   }
+
+  // tslint:disable-next-line:typedef
+  saveUserToServer(){
+    this.httpClient.post('http://localhost:4000/user', this.users)
+      .subscribe(
+        () => {
+          console.log('Sign Up Done !');
+        },
+        (error) => {
+          console.log(`Error during the registrement ${error.message}`);
+        }
+      );
+  }
+
+  // tslint:disable-next-line:typedef
+  getUserFromServer(){
+    this.httpClient.get<any[]>('http://localhost:4000/user')
+      .subscribe(
+        (response) => {
+          // tslint:disable-next-line:prefer-for-of
+          for (let i = 0; i < response.length; i++ ){
+            this.users.push(response[i]);
+          }
+        },
+        (error) => {
+          console.log('Error get !' + error.message);
+        }
+      );
+  }
+
 }
+
